@@ -1,8 +1,9 @@
-// Routes 
-const routes = require('express').Router();
+const router = require('express').Router();
 
-const controller = require('../controllers');
+router.use('/contacts', require('./contacts'))
 
-routes.get('/', controller.returnName);
+router.use("/", require("./name-route"))
 
-module.exports = routes;
+router.use('/api-docs', require('./swagger'));
+
+module.exports = router;
